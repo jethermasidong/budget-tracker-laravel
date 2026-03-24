@@ -29,10 +29,15 @@ You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Templates
+## Laravel Templates Used
+Authentication
 ```
 composer require laravel/breeze --dev
 php artisan breeze:install blade
+```
+CRUD (Budget, Income, Expense)
+```
+php artisan make:controller budgetController --api
 ```
 
 ## Laravel Sponsors
