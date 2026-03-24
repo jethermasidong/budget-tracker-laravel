@@ -7,7 +7,7 @@
         </div>
 
         <div class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-            <a href="#" class="text-gray-700 text-xs font-bold tracking-widest hover:text-blue-500 transition">BUDGET</a>
+            <a href="{{ route('budgets.index')}}" class="text-gray-700 text-xs font-bold tracking-widest hover:text-blue-500 transition">BUDGET</a>
             <a href="#" class="text-gray-700 text-xs font-bold tracking-widest hover:text-blue-500 transition">INCOME</a>
             <a href="#" class="text-gray-700 text-xs font-bold tracking-widest hover:text-blue-500 transition">EXPENSE</a>
         </div>
@@ -31,7 +31,7 @@
         </div>
 
         <div id="mobile-menu" class="hidden absolute top-20 left-0 right-0 bg-white border border-gray-100 rounded-3xl shadow-2xl p-6 flex-col gap-4 md:hidden z-50">
-            <a href="#" class="text-gray-700 font-bold border-b border-gray-50 pb-2">BUDGET</a>
+            <a href="{{ route('budgets.index')}}" class="text-gray-700 font-bold border-b border-gray-50 pb-2">BUDGET</a>
             <a href="#" class="text-gray-700 font-bold border-b border-gray-50 pb-2">INCOME</a>
             <a href="#" class="text-gray-700 font-bold border-b border-gray-50 pb-2">EXPENSE</a>
             <a href="{{ route('dashboard') }}" class="text-blue-600 font-bold">HOME</a>

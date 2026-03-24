@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Budget;
+use Illuminate\Http\Request;
+
 
 class BudgetController extends Controller
 {
@@ -12,8 +13,11 @@ class BudgetController extends Controller
      */
     public function index()
     {
-        $budgets = Budget::all();
-        return view('budgets.index', compact('budgets'));
+       $budgets = Budget::where('user_id', auth()->id())
+                     ->latest()
+                     ->paginate(10); 
+
+    return view('budgets.index', compact('budgets'));
     }
 
     /**
@@ -21,12 +25,15 @@ class BudgetController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'month' => 'required',
             'year' => 'required',
             'amount' => 'required',
         ]);
-        Budget::create($request->all());
+
+        $validated['user_id'] = auth()->id();
+
+        Budget::create($validated);
         return redirect()->route('budgets.index')
             ->with('success', 'Post created successfully!');
     }
@@ -34,7 +41,7 @@ class BudgetController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         $budgets = Budget::find($id);
         return view('budgets.show', compact('budgets'));
@@ -43,15 +50,14 @@ class BudgetController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Budget $budget)
     {
-        $request->validate([
-            'month' => 'required',
-            'year' => 'required',
-            'amount' => 'required',
+        $validated = $request->validate([
+            'month' => 'required|integer',
+            'year' => 'required|integer',
+            'amount' => 'required|numeric',
         ]);
-        $budgets = Budget::find($id);
-        $budgets->update($request->all());
+        $budget->update($validated);
         return redirect()->route('budgets.index')
             ->with('success', 'Post updated successfully!');
     }
@@ -65,5 +71,21 @@ class BudgetController extends Controller
         $budgets->delete();
         return redirect()->route('budgets.index')
             ->with('success', 'Post deleted successfully!');
+    }
+
+    /**
+    * Show the form for creating a new resource.
+    */
+    public function create()
+    {
+        return view('budgets.create');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Budget $budget)
+    {
+        return view('budgets.edit', compact('budget'));
     }
 }
