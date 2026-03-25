@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Overview</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-100 font-sans antialiased">
+<body class="bg-gray-100 antialiased">
 
    
     <x-headertwo />
 
     <main class="py-12 mt-20">
-         <a href="{{ route('budgets.create') }}" class="inline-flex items-center mb-5 ml-7 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
-            + Add New Budget
-        </a>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10">
+            <div class="flex justify-end mb-5">
+                <a href="{{ route('budgets.create') }}" class="inline-flex px-4 py-2 bg-[#578FCA] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
+                    + Add New Budget
+                </a>
+            </div>
             
             @if (session('success'))
                 <div class="mb-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700 shadow-sm">

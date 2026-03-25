@@ -88,4 +88,17 @@ class BudgetController extends Controller
     {
         return view('budgets.edit', compact('budget'));
     }
+
+
+    public function dashboard()
+    {
+        $userId = auth()->id();
+
+        $budget = \App\Models\Budget::where('user_id', $userId)
+            ->where('month', now()->month)
+            ->where('year', now()->year)
+            ->first();
+
+        return view('dashboard', compact('budget'));
+    }
 }

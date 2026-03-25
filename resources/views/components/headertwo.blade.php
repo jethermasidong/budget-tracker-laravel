@@ -16,7 +16,7 @@
             <a href="{{ route('dashboard') }}" class="text-gray-700 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-100 transition">HOME</a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition shadow-md active:scale-95">
+                <button type="submit" class="bg-[#3674B5] text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition shadow-md active:scale-95">
                     LOGOUT
                 </button>
             </form>

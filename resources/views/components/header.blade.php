@@ -11,7 +11,7 @@
             LOGIN
         </a>
 
-        <a href="{{ route('register') }}" class="bg-blue-400 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition shadow-md active:scale-95">
+        <a href="{{ route('register') }}" class="bg-[#578FCA] text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition shadow-md active:scale-95">
             SIGN UP
         </a>
     </div>
