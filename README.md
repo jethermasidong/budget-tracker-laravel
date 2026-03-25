@@ -40,6 +40,11 @@ CRUD (Budget, Income, Expense)
 php artisan make:controller budgetController --api
 ```
 
+Laravel Built-in Icons
+```
+composer require blade-ui-kit/blade-heroicons
+```
+
 
 ## Contributing
 
